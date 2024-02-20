@@ -73,7 +73,6 @@ app.post('/login', async (req,res) => {
 
 app.get('/profile', (req,res) => {
     const {token} = req.cookies;
-    console.log(token);
     if (token) {
         jwt.verify(token, jwtSecret, {}, async (err, userData) => {
             if (err) throw err;
@@ -153,7 +152,6 @@ app.put('/places', async (req,res) => {
         if (err) throw err;
         const placeDoc = await Place.findById(id);
         if (userData.id === placeDoc.owner.toString()) {
-            console.log({price});
             placeDoc.set({
                 title,address,photos:addedPhotos,description,
                 perks,extraInfo,checkIn,checkOut,maxGuests,price,    
