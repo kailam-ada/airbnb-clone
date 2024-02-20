@@ -17,6 +17,7 @@ export default function PlacesFormPage () {
     const [checkIn,setCheckIn] = useState('');
     const [checkOut,setCheckOut] = useState('');
     const [maxGuests,setMaxGuests] = useState(1);
+    const [price,setPrice] = useState(100)
     const [redirect,setRedirect] = useState(false);
     useEffect(() => {
         if (!id) {
@@ -33,6 +34,7 @@ export default function PlacesFormPage () {
             setCheckIn(data.checkIn);
             setCheckOut(data.checkOut);
             setMaxGuests(data.maxGuests);
+            setPrice(data.price);
         })
     }, [id]);
 
@@ -60,7 +62,7 @@ export default function PlacesFormPage () {
         const placeData = {
             title, address, addedPhotos, 
             description, perks, extraInfo, 
-            checkIn, checkOut, maxGuests
+            checkIn, checkOut, maxGuests, price,
         };
         if (id) {
             //update
@@ -100,7 +102,7 @@ export default function PlacesFormPage () {
             {preInput('Extra info', 'House rules, etc')}
             <textarea value={extraInfo} onChange={ev => setExtraInfo(ev.target.value)} />
             {preInput('Check in&out times', 'Add check in and out times, remember to have some time window for cleaning the room between guests')}
-            <div className="grid gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+            <div className="grid gap-2 grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
                 <div>
                     <h3 className="mt-2 -mb-1">Check in time</h3>
                     <input type="number" 
@@ -120,6 +122,12 @@ export default function PlacesFormPage () {
                     <input type="number" 
                     value={maxGuests} 
                     onChange={ev => setMaxGuests(ev.target.value)} />
+                </div>
+                <div>
+                    <h3 className="mt-2 -mb-1">Price per night</h3>
+                    <input type="number" 
+                    value={price} 
+                    onChange={ev => setPrice(ev.target.value)} />
                 </div>
             </div>
                 <button className="primary my-4">Save</button>
