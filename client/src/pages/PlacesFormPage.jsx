@@ -7,9 +7,10 @@ import { Navigate, useParams } from "react-router-dom";
 
 export default function PlacesFormPage () {
     const {id} = useParams();
+    console.log({id});
     const [title,setTitle] = useState('');
     const [address,setAddress] = useState('');
-    const [addedPhotos,setAddedPhotos] = useState('');
+    const [addedPhotos,setAddedPhotos] = useState([]);
     const [description,setDescription] = useState('');
     const [perks,setPerks] = useState([]);
     const [extraInfo,setExtraInfo] = useState('');
@@ -102,14 +103,14 @@ export default function PlacesFormPage () {
             <div className="grid gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
                 <div>
                     <h3 className="mt-2 -mb-1">Check in time</h3>
-                    <input type="text" 
+                    <input type="number" 
                     value={checkIn} 
                     onChange={ev => setCheckIn(ev.target.value)} 
                     placeholder="14" />
                 </div>
                 <div>
                     <h3 className="mt-2 -mb-1">Check out time</h3>
-                    <input type="text" 
+                    <input type="number" 
                     value={checkOut} 
                     onChange={ev => setCheckOut(ev.target.value)} 
                     placeholder="11" />

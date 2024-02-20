@@ -14,11 +14,11 @@ require('dotenv').config();
 const app = express();
 
 const bcryptSalt = bcrypt.genSaltSync(8);
-const jwtSecret = "szbgfdmhnbvnn"
+const jwtSecret = "szbgfdmhnbvnn";
 
 app.use(express.json());
 app.use(cookieParser());
-app.use('/uploads', express.static(__dirname+'/uploads'));
+app.use('/uploads', express.static(__dirname+ '/uploads'));
 app.use(cors({
     credentials: true,
     origin: 'http://localhost:5173',
@@ -61,9 +61,8 @@ app.post('/login', async (req,res) => {
                 email:userDoc.email, 
                 id:userDoc._id}, jwtSecret, {}, (err,token) => {
                 if (err) throw err;
-                res.cookie('token', token).json('pass ok')
+                res.cookie('token', token).json(userDoc)
             });
-            res.cookie('token', '').json(userDoc);
         } else {
             res.status(422).json('pass not ok');
         }
@@ -74,6 +73,7 @@ app.post('/login', async (req,res) => {
 
 app.get('/profile', (req,res) => {
     const {token} = req.cookies;
+    console.log(token);
     if (token) {
         jwt.verify(token, jwtSecret, {}, async (err, userData) => {
             if (err) throw err;
@@ -81,8 +81,7 @@ app.get('/profile', (req,res) => {
             res.json({name,email,_id});
         });
     } else {
-        res.json(null)
-    }
+        return res.status(401).json({ error: 'Unauthorized' });    }
 });
 
 app.post('/logout', (req,res) => {
@@ -121,22 +120,21 @@ app.post('/places', (req,res) => {
         perks,extraInfo,checkIn,checkOut,maxGuests,
     } = req.body;
     jwt.verify(token, jwtSecret, {}, async (err, userData) => {
-    if (err) throw err;
+        if (err) throw err;
         const placeDoc = await Place.create({
             owner:userData.id,
             title,address,photos:addedPhotos,description,
             perks,extraInfo,checkIn,checkOut,maxGuests,
         });
+        res.json(placeDoc);
     });
-    res.json(placeDoc);
 });
 
-app.get('/places', (req,res) => {
+app.get('/user-places', (req,res) => {
     const {token} = req.cookies;
     jwt.verify(token, jwtSecret, {}, async (err, userData) => {
-        if (err) throw err;
         const {id} = userData;
-        res.json (await Place.find({owner:id}) );
+        res.json( await Place.find({owner:id}) );
     });
 });
 
@@ -164,6 +162,10 @@ app.put('/places', async (req,res) => {
         }
     });
 
+})
+
+app.get('/places', async (req,res) => {
+    res.json( await Place.find());
 })
 
 app.listen(4000);
