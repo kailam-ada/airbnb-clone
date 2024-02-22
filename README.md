@@ -14,7 +14,7 @@ Database: Mongo DB
 ***Coming soon !***
 
 ## Deployment
-The project is live ! [Check it out !](kai-airbnb-clone.vercel.app/)
+The project is live ! [Check it out !](https://kai-airbnb-clone.vercel.app/)
 
 ## Built with
 - ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
