@@ -4,7 +4,10 @@
 ## About the project
 <p>
 The aim was to create a fullstack project using the MERN stack (MongoDB, Express, React, Node).<br/>
-For this project I tried to make a basic Airbnb clone app.
+For this project I tried to make a basic Airbnb clone app.<br/>
+Front: React<br/>
+Back: Node, Express<br/>
+Database: Mongo DB
 </p>
 
 ## Demo
@@ -17,7 +20,11 @@ The project is live ! [Check it out !](https://kailam-ada.github.io/API_Project/
 - ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
 - ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 - ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
-<br>
+
+## 📚 DOCUMENTATION
+- [React.js documentation](https://beta.reactjs.org/)
+- [Vite.js documentation](https://vitejs.dev/)
+- [Tailwind documentation](https://tailwindcss.com/)
 
 ## Author
 Hello! I'm Kai!<br/>
