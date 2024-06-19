@@ -1,27 +1,11 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import AddressLink from "../AddressLink";
+import AddressLink from "../components/AddressLink";
 import BookingDates from "../BookingDates";
 import PlaceGallery from "../PlaceGallery";
+import useBooking from "../hooks/useBooking";
 
 export default function BookingPage() {
-    const {id} = useParams();
-    const [booking,setBooking] = useState(null);
-    useEffect(() => {
-        if (id) {
-            axios.get('/bookings').then(response => {
-                const foundBooking = response.data.find(({_id}) => _id === id)
-                if (foundBooking) {
-                    setBooking(foundBooking);
-                }
-            })
-        }
-    }, [id]);
 
-    if (!booking) {
-        return '';
-    }
+    const booking = useBooking();
 
     return (
         <div className="my-8">

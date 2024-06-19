@@ -1,36 +1,30 @@
-import { useContext, useState } from "react"
-import { UserContext } from "../UserContext.jsx"
 import { Navigate, useParams } from "react-router-dom";
-import axios from "axios";
 import PlacesPage from "./PlacesPage.jsx";
-import AccountNav from "../AccountNav.jsx";
+import AccountNav from "../components/AccountNav.jsx";
+import useAuth from "../hooks/useAuth.js";
 
 export default function ProfilePage() {
-    const [redirect,setRedirect] = useState(null);
-    const {ready,user,setUser} = useContext(UserContext);
-    
+  
+    const { ready, user, redirect, logout } = useAuth();
+
     let {subpage} = useParams();
     if (subpage === undefined) {
         subpage ='profile';
     }
 
-    async function logout() {
-        await axios.post('/logout');
-        setRedirect('/');
-        setUser(null);
-    }   
-
     if (!ready) {
-        return 'Loading...';
+        return <div>Loading...</div>;
     }
 
-    if (ready && !user && !redirect) {
-        return <Navigate to={'/login'} />
-    }
+    // if (ready && !user && !redirect) {
+    //     return <Navigate to={'/login'} />
+    // }
 
-
-    if (redirect) {
-        return <Navigate to={redirect} />
+    // if (redirect) {
+    //     return <Navigate to={redirect} />
+    // }
+    if ((ready && !user && !redirect) || redirect) {
+        return <Navigate to={redirect || "/login"} />;
     }
 
     return (
@@ -42,9 +36,7 @@ export default function ProfilePage() {
                     <button onClick={logout} className="primary max-w-sm m-2">Logout</button>
                 </div>
             )}
-            {subpage === 'places' && (
-            <PlacesPage />
-        )}
+            {subpage === 'places' && <PlacesPage />}
         </div>
     )
 }
