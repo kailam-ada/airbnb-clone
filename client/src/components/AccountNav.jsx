@@ -3,7 +3,6 @@ import ProfileIcon from "./icons/ProfileIcon";
 import BookingsIcon from "./icons/BookingsIcon";
 import PlacesIcon from "./icons/PlacesIcon";
 
-
 export default function AccountNav() {
     const {pathname} = useLocation();
     const subpage = pathname.split("/")?.[2] || "profile";
@@ -33,6 +32,5 @@ export default function AccountNav() {
             My accommodations
         </Link>
     </nav>
-
     )
 }

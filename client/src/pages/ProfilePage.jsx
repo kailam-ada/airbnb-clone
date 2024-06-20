@@ -16,13 +16,6 @@ export default function ProfilePage() {
         return <div>Loading...</div>;
     }
 
-    // if (ready && !user && !redirect) {
-    //     return <Navigate to={'/login'} />
-    // }
-
-    // if (redirect) {
-    //     return <Navigate to={redirect} />
-    // }
     if ((ready && !user && !redirect) || redirect) {
         return <Navigate to={redirect || "/login"} />;
     }

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
-import UploadIcon from "./components/icons/UploadIcon";
-import PhotoItem from "./components/placeForm/PhotoItem.jsx";
+import UploadIcon from "../icons/UploadIcon.jsx";
+import PhotoItem from "./PhotoItem.jsx";
 
 export default function PhotosUploader({addedPhotos,onChange}) {
     const [photoLink,setPhotoLink] = useState('');

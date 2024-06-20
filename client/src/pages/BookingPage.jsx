@@ -1,11 +1,15 @@
 import AddressLink from "../components/AddressLink";
-import BookingDates from "../BookingDates";
-import PlaceGallery from "../PlaceGallery";
+import BookingDates from "../components/BookingDates";
+import PlaceGallery from "../components/PlaceGallery";
 import useBooking from "../hooks/useBooking";
 
 export default function BookingPage() {
 
     const booking = useBooking();
+
+    if (!booking) {
+        return <div>No bookings</div>
+    }
 
     return (
         <div className="my-8">

@@ -1,7 +1,7 @@
 import DeleteIcon from "../icons/DeleteIcon";
 import MainPhotoIcon from "../icons/MainPhotoIcon";
 import PhotoIcon from "../icons/PhotoIcon";
-import Image from "../../Image.jsx";
+import Image from "../Image.jsx";
 
 export default function PhotoItem({ link, removePhoto, selectAsMainPhoto, addedPhotos }) {
   return (
