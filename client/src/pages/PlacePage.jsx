@@ -1,5 +1,5 @@
-import BookingWidget from "../BookingWidget";
-import PlaceGallery from "../PlaceGallery";
+import BookingWidget from "../components/BookingWidget";
+import PlaceGallery from "../components/PlaceGallery";
 import AddressLink from "../components/AddressLink";
 import usePlace from "../hooks/usePlace";
 

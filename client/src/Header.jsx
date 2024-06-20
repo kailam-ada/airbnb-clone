@@ -3,7 +3,8 @@ import { useContext } from "react";
 import { UserContext } from "./UserContext";
 import AirbnbIcon from "./components/icons/AirbnbIcon";
 import SearchIcon from "./components/icons/SearchIcon";
-import MenuIcon from "./components/icons/MenuIcon";
+import MenuIcon from "./components/icons/UserIcon";
+import UserIcon from "./components/icons/MenuIcon";
 
 export default function Header () {
   const {user} = useContext(UserContext);
@@ -24,11 +25,9 @@ export default function Header () {
           </button>
         </div>
         <Link to={user?'/account':'/login'} className='flex items-center gap-2 border brder-gray-300 rounded-full py-2 px-4'>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
-          <div className='bg-gray-500 text-white rounded-full border border-gray-500 overflow-hidden'>
           <MenuIcon />
+          <div className='bg-gray-500 text-white rounded-full border border-gray-500 overflow-hidden'>
+          <UserIcon />
           </div>
           {!!user && (
             <div>

@@ -1,5 +1,5 @@
 import Perks from "../components/placeForm/Perks";
-import PhotosUploader from "../PhotosUploader";
+import PhotosUploader from "../components/placeForm/PhotosUploader";
 import AccountNav from "../components/AccountNav";
 import { Navigate, useParams } from "react-router-dom";
 import PreInput from "../components/placeForm/PreInput";
