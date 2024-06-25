@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 export async function addPhotoByLink(photoLink, onChange) {
   const { data: filename } = await axios.post("/upload-by-link", {
     link: photoLink,
@@ -11,8 +12,8 @@ export function uploadPhoto(ev, onChange) {
   const files = ev.target.files;
   const data = new FormData();
 
-  for (let i = 0; i < files.length; i++) {
-    data.append("photos", files[i]);
+  for (let file of files) {
+    data.append("photos", file);
   }
 
   axios
