@@ -14,7 +14,8 @@ Database: Mongo DB
 ## News
 
 **19/06/2024** : First major update.
-In an effort to adhere to the best practices of **clean code**, I undertook a comprehensive refactoring of the codebase. This included the creation of custom hooks and the division of the code into more manageable components. While there is always room for improvement, I am confident that these changes represent a significant step forward in terms of code quality and maintainability.
+In an effort to adhere to the best practices of **clean code**, I undertook a comprehensive refactoring of the codebase. This included the creation of custom hooks and the division of the code into more manageable components. While there is always room for improvement, I am confident that these changes represent a significant step forward in terms of code quality and maintainability.<br/>
+
 **25/06/2024** : Second major update.
 I migrated the front to **TypeScript**. I encountered numerous challenges along the way, but each one provided me with a valuable learning experience.
 
